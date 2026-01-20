@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Morning Walk Tracker</title>
+
+
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="style.css" />
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+</head>
+<body>
+
+
+<h1>Morning Walk Tracker</h1>
+
+
+<div id="map"></div>
+
+
+<div class="controls">
+<button id="startBtn">Start Walk</button>
+<button id="stopBtn" disabled>Stop Walk</button>
+</div>
+
+
+<div class="summary" id="summary" hidden>
+<h2>Walk Summary</h2>
+<p><strong>Distance:</strong> <span id="distance"></span> km</p>
+<p><strong>Time:</strong> <span id="duration"></span></p>
+<button onclick="showHistory()">View History</button>
+</div>
+
+
+<div class="history" id="history" hidden>
+<h2>Walk History</h2>
+<button onclick="filterHistory('today')">Today</button>
+<button onclick="filterHistory('yesterday')">Yesterday</button>
+<div id="historyList"></div>
+</div>
+
+
+<script src="app.js"></script>
+
+
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+
+</body>
+</html>
